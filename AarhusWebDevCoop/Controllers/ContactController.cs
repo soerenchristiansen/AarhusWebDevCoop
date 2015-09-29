@@ -51,8 +51,8 @@ namespace AarhusWebDevCoop.Controllers
                 {
                     var credential = new NetworkCredential
                     {
-                        UserName = "astonvilla83@hotmail.com",  // replace with valid value
-                        Password = "carlos1"  // replace with valid value
+                        UserName = "email",  // replace with valid value
+                        Password = "password"  // replace with valid value
                     };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp-mail.outlook.com";
