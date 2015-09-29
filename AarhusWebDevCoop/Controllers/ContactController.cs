@@ -49,15 +49,7 @@ namespace AarhusWebDevCoop.Controllers
 
                 using (var smtp = new SmtpClient())
                 {
-                    var credential = new NetworkCredential
-                    {
-                        UserName = "email",  // replace with valid value
-                        Password = "password"  // replace with valid value
-                    };
-                    smtp.Credentials = credential;
-                    smtp.Host = "smtp-mail.outlook.com";
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
+                    
                     await smtp.SendMailAsync(message);
                 }
 
