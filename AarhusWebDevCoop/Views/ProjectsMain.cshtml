@@ -2,3 +2,26 @@
 @{
     Layout = "Master.cshtml";
 }
+
+@{ var selection = CurrentPage.Site().FirstChild("ProjectsMain").Children("ProjectsItem").Where("Visible"); }
+
+<table class="table table-responsive">
+	<tr>
+		<th>Project Name</th>
+		<th>Project Description</th>
+		<th>Project Status</th>
+	</tr>
+	@if (selection.Any())
+	{
+		foreach (var item in selection)
+		{
+			<tr>
+					<td>@item.Name</td>
+					<td>@item.ProjectBody</td>
+					<td>@item.projectStatus</td>
+			</tr>
+		}
+	}		
+</table>
+	
+	
