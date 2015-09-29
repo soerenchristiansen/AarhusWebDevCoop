@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<h2>@Umbraco.Field("sitetitle")</h2>
+<p>@Umbraco.Field("maincontent")</p>
+	@if (CurrentPage.HasValue("homeImage"))
+    {
+        <img src='@CurrentPage.homeImage.src' width="100%" height="400px" alt="image" />
+    }
