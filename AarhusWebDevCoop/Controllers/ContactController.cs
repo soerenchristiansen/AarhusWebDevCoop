@@ -20,7 +20,7 @@ namespace AarhusWebDevCoop.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> ContactForm(ContactModel model)
+        public ActionResult ContactForm(ContactModel model)
         {
             if (ModelState.IsValid)
             {
@@ -40,18 +40,18 @@ namespace AarhusWebDevCoop.Controllers
 
                 var message = new MailMessage();
 
-                message.To.Add(new MailAddress(ConfigurationManager.AppSettings["ContactAddress"]));
+                //message.To.Add(new MailAddress(ConfigurationManager.AppSettings["ContactAddress"]));
                 message.Subject = model.Subject;
                 message.From = new MailAddress(model.Email, model.Name);
                 message.Body = sb.ToString();
                 message.IsBodyHtml = true;
                 TempData["success"] = true;
 
-                using (var smtp = new SmtpClient())
-                {
+                //using (var smtp = new SmtpClient())
+                //{
                     
-                    await smtp.SendMailAsync(message);
-                }
+                //    await smtp.SendMailAsync(message);
+                //}
 
                 return RedirectToCurrentUmbracoPage();
             }
